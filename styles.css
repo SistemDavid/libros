@@ -1,0 +1,452 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #f1f5f9;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: #ffffff; */
+    background: #22BAA0;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.toggle-btn {
+    background:none;
+    border: 2px solid #fff;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 10%;
+}
+
+.bx-menu {
+    color: #fff;
+}
+
+.title, .resolucion {
+    margin-left: 15px;
+    font-size: 25px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.resolucion {
+    margin-left: 15px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.header-right {
+    position: relative;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.user-name {
+    margin-right: 5px;
+    color: #ffffff;
+}
+
+.bx-chevron-down {
+    color: #ffffff;
+}
+
+.dropdown-content {
+    display: none; /* Por defecto oculto, controlado por JS */
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+    border-radius: 8px;
+}
+
+.dropdown-content.active {
+    display: block; /* Clase para mostrar el menú */
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-content a:hover {
+    background: #f1f5f9;
+    border-radius: 8px;
+}
+
+.sidebar {
+    width: 250px;
+    background: #1e293b;
+    color: #fff;
+    height: 100vh;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    transition: width 0.3s ease, left 0.3s ease; /* Añadimos transición para left */
+    overflow: hidden; /* Evita desbordamiento */
+}
+
+/*Logotipo y texto*/
+.logo img {
+    width: 40%;
+    margin-top: 30px;
+    margin-left: calc(100% - 175px);
+    border: 3px solid #fff;
+    border-radius: 5%;
+}
+
+.logo h4 {
+    text-align: center;
+}
+
+.logo p {
+    text-align: center;
+}
+
+.sidebar.collapsed {
+    width: 60px;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 20px 0;
+}
+
+.nav-links li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links li a i {
+    font-size: 20px;
+    margin-right: 15px;
+}
+
+.nav-links li a span {
+    display: inline-block;
+    opacity: 1; /* Aseguramos que el texto sea visible */
+    /* transition: opacity 0.3s ease; */
+    transition: none;
+
+}
+
+.sidebar.collapsed .nav-links li a span {
+    /*opacity: 0; /* Ocultamos el texto al colapsar */
+    display: none; /* Oculto el texto solo cuando está colapsado */
+}
+
+.nav-links li a:hover {
+    background: #334155;
+}
+
+.main-content {
+    margin-left: 250px;
+    margin-top: 60px;
+    padding: 20px;
+    flex-grow: 1;
+    transition: margin-left 0.3s ease; /* Transición suave para el contenido */
+}
+
+/* .main-content .titulo{
+    background-color: #e4e5e6;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #1e293b;
+} */
+
+.main-content.collapsed {
+    margin-left: 60px; /* Ajustamos el margen cuando el sidebar está colapsado */
+}
+
+/*AGREGADO */
+.analytics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.2rem;
+}
+
+.card {
+    box-shadow: 0px 5px 5px -5px rgb(0 0 0 / 10%);
+    background: #fff;
+    padding: 1rem;
+    border-radius: 3px;
+}
+
+.card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-head h2 {
+    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.card-head span {
+    font-size: 3.2rem;
+    color: var(--text-grey);
+}
+
+.card-progress small {
+    color: #777;
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+.card-indicator {
+    margin: .7rem 0rem;
+    height: 10px;
+    border-radius: 4px;
+    background: #e9edf2;
+    overflow: hidden;
+}
+
+.indicator {
+    height: 10px;
+    border-radius: 4px;
+}
+
+.indicator.one {
+    background: #22baa0;
+}
+
+.indicator.two {
+    background: #11a8c3;
+}
+
+.indicator.three {
+    background: #f6d433;
+}
+
+.indicator.four {
+    background: #f25656;
+}
+
+/*SECCIONES */
+.main-content .contenido {
+    display: flex;
+    margin-top: 0;
+}
+/*SECRETARIO */
+.contenido .secretario {
+    width: 100%;
+    padding: 20px;
+    /* background-color: #d085e5; */
+    /* display: flex;
+    justify-content: center; /* Asegura que todo el contenido de article esté centrado */
+}
+.secretario .cabeza-secre {
+    border-radius: 10px 10px 0 0;
+    background-color: #9c11c3;
+    text-align: center;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+}
+.secretario .cabeza-secre h2{
+    color: #fff;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+.secretario .cuerpo-secre{
+    background-color: #bd67d5;
+    color: #ffffff;
+    padding: 10px 0;
+}
+.secretario .cuerpo-secre .lista{
+    display: flex; /* Cambia el contexto de renderizado a Flexbox */
+    flex-direction: column; /* Mantiene las etiquetas <li> en columna */
+    align-items: center; /* Centra horizontalmente el contenido dentro del <ol> */
+    margin: 0 auto; /* Asegura que el <ol> esté centrado en la página */
+    text-align: center; /* Para alinear el texto */
+    list-style-position: inside; /* Coloca el número dentro del cuadro del texto */
+    margin: 0; /* Elimina márgenes innecesarios */
+    padding: 0; /* Elimina rellenos innecesarios */
+}
+.secretario .cuerpo-secre .lista li{
+    text-indent: 0; /* Asegura que no haya sangría adicional */
+    margin-left: 0; /* Elimina espacios del margen izquierdo */
+    line-height: 1.5; /* Opcional: mejora la separación entre líneas */
+}
+
+.secretario .cuerpo-secre p{
+    text-align: center;
+}
+.cuerpo-secre .amarillo{
+    color: yellow;
+}
+.cuerpo-secre .asistente{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.cuerpo-secre .carrera{
+    text-transform: uppercase;
+}
+
+
+.secretario .pie-secre{
+    background-color: #9c11c3;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 0 0 10px 10px;
+    padding: 10px 0;
+}
+
+/* CONTADOR*/
+.contenido .contador {
+    width: 100%;
+    /* background-color: #22BAA0; */
+    padding: 20px;
+}
+.contador .cabeza-conta{
+    border-radius: 10px 10px 0 0;
+    background-color: #d42207;
+    text-align: center;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+}
+.contador .cabeza-conta h2{
+    color: #fff;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+.contador .cuerpo-conta{
+    background-color: #e27160;
+    color: #ffffff;
+    padding: 10px 0;
+}
+.contador .cuerpo-conta .lista{
+    display: flex; /* Cambia el contexto de renderizado a Flexbox */
+    flex-direction: column; /* Mantiene las etiquetas <li> en columna */
+    align-items: center; /* Centra horizontalmente el contenido dentro del <ol> */
+    margin: 0 auto; /* Asegura que el <ol> esté centrado en la página */
+    text-align: center; /* Para alinear el texto */
+    list-style-position: inside; /* Coloca el número dentro del cuadro del texto */
+    margin: 0; /* Elimina márgenes innecesarios */
+    padding: 0; /* Elimina rellenos innecesarios */
+}
+.contador .cuerpo-conta .lista li{
+    text-indent: 0; /* Asegura que no haya sangría adicional */
+    margin-left: 0; /* Elimina espacios del margen izquierdo */
+    line-height: 1.5; /* Opcional: mejora la separación entre*/
+}
+.contador .cuerpo-conta p{
+    text-align: center;
+}
+.cuerpo-conta .amarillo{
+    color: yellow;
+}
+.cuerpo-conta .asistente{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.cuerpo-conta .carrera{
+    text-transform: uppercase;
+}
+
+.contador .pie-conta{
+    background-color: #d42207;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 0 0 10px 10px;
+    padding: 10px 0;
+}
+
+
+/* Responsividad */
+/* Ajusto la media query para asegurar visibilidad en móvil */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 0;
+        left: -250px;
+    }
+
+    .sidebar .logo{
+        margin-top: 25px;
+    }
+
+    .sidebar.expanded {
+        width: 250px;
+        left: 0;
+    }
+
+    .sidebar.expanded .nav-links li a span {
+        display: inline-block; /* Forzamos que el texto sea visible al expandir */
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .main-content h1{
+        font-size: 1.5rem;
+        margin-top: 20px;
+    }
+
+    .main-content.expanded {
+        margin-left: 0;
+    }
+
+    /* */
+    .main-content .contenido {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .secretario .cuerpo-secre{
+        padding: 10px 5px;
+    }
+
+    .contador .cuerpo-conta{
+        padding: 10px 5px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .analytics {
+        grid-template-columns: 100%;
+        margin-top: 25px;
+    }
+
+    .sidebar {
+        z-index: 950;
+    }
+}

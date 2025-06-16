@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Instituto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-left">
+            <button id="toggle-btn" class="toggle-btn"><i class='bx bx-menu'></i></button>
+            <div>
+                <p class="title">Instituto Técnico Maranatha</p>
+                <p class="resolucion">R.A. 526/01 - R.M. 028/13 - R.M. 987/22</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="user-menu" id="user-menu">
+                <span class="user-name" id="user-name">Usuario</span>
+                <i class='bx bx-chevron-down'></i>
+                <div class="dropdown-content" id="dropdown-content">
+                    <a href="#">Perfil</a>
+                    <a href="#">Configuraciones</a>
+                    <a href="login.html" onclick="logout()">Salir</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="LOGO-MARANATHA.jpg" alt="logotipo instituto">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="loadSection('inicio')"><i class='bx bx-home'></i> <span>Inicio</span></a></li>
+            <li><a href="#" onclick="loadSection('areas')"><i class='bx bx-building'></i> <span>Áreas</span></a></li>
+            <li><a href="#" onclick="loadSection('sedes')"><i class='bx bx-map'></i> <span>Sedes</span></a></li>
+            <li><a href="#" onclick="loadSection('cursos')"><i class='bx bx-book'></i> <span>Cursos</span></a></li>
+            <li><a href="#" onclick="loadSection('profesores')"><i class='bx bx-user-voice'></i> <span>Profesores</span></a></li>
+            <li><a href="#" onclick="loadSection('alumnos')"><i class='bx bx-user'></i> <span>Alumnos</span></a></li>
+            <li><a href="#" onclick="loadSection('usuarios')"><i class='bx bx-cog'></i> <span>Usuarios</span></a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content" id="main-content">
+        <div class="analytics">
+            <div class="card">
+                <div class="card-head">
+                    <h2>Diseño Gráfico</h2>
+                    <span class="las la-tablet"></span>
+                </div>
+                <div class="card-progress">
+                    <small>Au + Pr + Ae</small>
+                    <div class="card-indicator">
+                        <div class="indicator one" style="width: 60%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-head">
+                    <h2>Contador General</h2>
+                    <span class="las la-calculator"></span>
+                </div>
+                <div class="card-progress">
+                    <small>Técnico Superior - Técnico Medio</small>
+                    <div class="card-indicator">
+                        <div class="indicator two" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-head">
+                    <h2>Secretariado Administrativo</h2>
+                    <span class="las la-briefcase"></span>
+                </div>
+                <div class="card-progress">
+                    <small>Técnico Superior - Técnico Medio</small>
+                    <div class="card-indicator">
+                        <div class="indicator three" style="width: 65%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-head">
+                    <h2>Diseño Web</h2>
+                    <span class="las la-code"></span>
+                </div>
+                <div class="card-progress">
+                    <small>Tecnologias Actuales</small>
+                    <div class="card-indicator">
+                        <div class="indicator four" style="width: 90%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="contenido">
+            <article class="secretario">
+                <header class="cabeza-secre">
+                    <h2>Secretario Administrativo</h2>
+                </header>
+                <main class="cuerpo-secre">
+                    <p>Certificación Progresiva, al culminar el primer año te graduas como:</p>
+                    <p class="amarillo asistente">Asistente de Gerencia Administrativa</p>
+                    <p class="amarillo carrera">La carrera incluye:</p>
+                    <ol class="lista">
+                        <li>Especialidad en: <p class="amarillo">Secretariado Educativo</p></li>
+                        <li>Especialidad en: <p class="amarillo">Secretariado Jurídico</p></li>
+                        <li>Especialidad en: <p class="amarillo">Secretariado Médico</p></li>
+                        <li>Especialidad en: <p class="amarillo">Secretariado en Comercio Exterior</p></li>
+                    </ol>
+                </main>
+                <footer class="pie-secre">
+                    <p>Nivel: Técnico Medio</p>
+                    <p>Duración: 2 años</p>
+                    <p>Modalidad: Presencial/ a Distancia</p>
+                </footer>
+            </article>
+            <article class="contador">
+                <header class="cabeza-conta">
+                    <h2>Contador General</h2>
+                </header>
+                <main class="cuerpo-conta">
+                    <p>Certificación Progresiva, al culminar el primer año te graduas como:</p>
+                    <p class="amarillo asistente">Asistente Contable Tributario</p>
+                    <p class="amarillo asistente">La carrera incluye:</p>
+                    <ol class="lista">
+                        <li>Especialidad en: <p class="amarillo">Gestión de Emprendimiento para Mypes</p></li>
+                        <li>Especialidad en: <p class="amarillo">Administración de Negocios</p></li>
+                        <li>Especialidad en: <p class="amarillo">Impuestos</p></li>
+                        <li>Especialidad en: <p class="amarillo">Gestión Empresarial</p></li>
+                    </ol>
+                </main>
+                <footer class="pie-conta">
+                    <p>Nivel: Técnico Medio</p>
+                    <p>Duración: 2 años</p>
+                    <p>Modalidad: Presencial/ a Distancia</p>
+                </footer>
+            </article>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="principal.js"></script>
+    <script src="areas.js"></script>
+    <script src="sedes.js"></script>
+    <script src="cursos.js"></script>
+    <script src="profesores.js"></script>
+    <script src="alumnos.js"></script>
+    <script src="usuarios.js"></script>
+</body>
+</html>
